@@ -15,6 +15,30 @@ This pilot measures transfer from one published checkpoint to this cohort with t
 
 ## Learn small details from project training data
 
-The next experiment uses a different patch pipeline. The detector reads a tissue crop, plus two versions that emphasize differences from the local average. Small fields of view preserve the shape of calcifications. Larger fields cover the structure of masses. Training uses lesion annotations from training patients to teach the detector. At prediction time a dense scan of the two whole views proposes candidate patches.
+The detector reads a tissue crop, plus two versions that emphasize differences from the local average. Small fields of view preserve the shape of calcifications. Larger fields cover the structure of masses. Training uses lesion annotations from training patients to teach the detector. At prediction time a dense scan of the two whole views proposes candidate patches.
 
-The breast-level classifier learns to combine patch evidence across views. Every training breast receives proposed patches from a detector that excluded its patient group. Validation compares the scoring model after fitting from those proposals. Selection needs to compare both the overall AUROC and the calcification subgroup on the frozen cohort. [Current evaluation protocol](AUROC.md#training-and-model-selection)
+The breast-level classifier learns to combine patch evidence across views. Every training breast receives proposed patches from a detector that excluded its patient group. The strongest standalone version reached **0.7964 validation AUROC**. The blend search compared **524 recipes** and selected a new version with **0.8350 cross-fitted validation AUROC**.
+
+| Same official test cohort | Published eight-model ensemble | New fine-texture candidate |
+| --- | ---: | ---: |
+| Breast-level AUROC | **0.8050** | 0.7882 |
+| Average precision | **0.7762** | 0.7578 |
+| Mass AUROC | **0.8602** | 0.8440 |
+| Calcification AUROC | **0.7341** | 0.7180 |
+
+The change was **−0.0168 AUROC**, with a paired 95% interval of **−0.0345 to +0.0002**. This experiment gives a concrete example of a higher validation score that fails to transfer to the familiar test cohort. The published ensemble remains the one described in the [main report](AUROC.md).
+
+### Reproduce the fine-texture candidate
+
+Use the same `$p`, `$cohort`, `$pixels1536`, `$hf` and `$runs` as the [main training guide](REPRODUCE.md).
+
+```powershell
+& $p -m medimage.auc_mammo_mil --cohort $cohort --pixels $pixels1536 --weights $hf `
+    --output "$runs/mammo-fine-texture" --patch-epochs 8 --epochs 18 --seed 5183 --fine-texture
+```
+
+Add the candidate `fine-texture-mil=runs/mammo-fine-texture@mammo-spatial1536` to the existing candidate list. Write the new validation lock in another evaluation directory before scoring the official test.
+
+## A second source of breast images
+
+The Chinese Mammography Database contains digital mammograms and biopsy-confirmed labels. It gives the experiment a way to learn from a second source and to reserve separate patients for evaluation. The data use different acquisition equipment from CBIS-DDSM. Transfer between the two is a research question. [CMMD data and citation](https://doi.org/10.7937/tcia.eqde-4b16)

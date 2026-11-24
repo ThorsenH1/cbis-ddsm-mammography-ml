@@ -1,0 +1,413 @@
+{
+  "task": "mammo",
+  "image_kind": "deterministic generated phantom",
+  "label": "malignancy_in_lesion_enriched_cohort",
+  "model_component": "view-supervised",
+  "model_checkpoint_sha256": "5943e4d7f7dd2cc1170ebc6582158490c83391b1ebd2182111f11ab81995ca0e",
+  "selection_sha256": "a581b164132b5afbddafcd6a9e23942d7fdb9ff0ec96494becf03ec888e7a7e6",
+  "occlusion_coordinate_system": "preprocessed image",
+  "projection": "CC",
+  "component_score_units": "log-odds before ensemble calibration",
+  "unblurred_score": -1.5020941495895386,
+  "probes": [
+    {
+      "box_xyxy": [
+        0,
+        0,
+        150,
+        213
+      ],
+      "score_after_blur": -1.5054816007614136,
+      "score_drop": 0.003387451171875
+    },
+    {
+      "box_xyxy": [
+        135,
+        0,
+        285,
+        213
+      ],
+      "score_after_blur": -1.5098456144332886,
+      "score_drop": 0.00775146484375
+    },
+    {
+      "box_xyxy": [
+        270,
+        0,
+        420,
+        213
+      ],
+      "score_after_blur": -1.493717074394226,
+      "score_drop": -0.0083770751953125
+    },
+    {
+      "box_xyxy": [
+        405,
+        0,
+        555,
+        213
+      ],
+      "score_after_blur": -1.490939974784851,
+      "score_drop": -0.0111541748046875
+    },
+    {
+      "box_xyxy": [
+        540,
+        0,
+        690,
+        213
+      ],
+      "score_after_blur": -1.4771918058395386,
+      "score_drop": -0.02490234375
+    },
+    {
+      "box_xyxy": [
+        0,
+        189,
+        150,
+        402
+      ],
+      "score_after_blur": -1.5123480558395386,
+      "score_drop": 0.01025390625
+    },
+    {
+      "box_xyxy": [
+        135,
+        189,
+        285,
+        402
+      ],
+      "score_after_blur": -1.503055453300476,
+      "score_drop": 0.0009613037109375
+    },
+    {
+      "box_xyxy": [
+        270,
+        189,
+        420,
+        402
+      ],
+      "score_after_blur": -1.507724642753601,
+      "score_drop": 0.0056304931640625
+    },
+    {
+      "box_xyxy": [
+        405,
+        189,
+        555,
+        402
+      ],
+      "score_after_blur": -1.5141791105270386,
+      "score_drop": 0.0120849609375
+    },
+    {
+      "box_xyxy": [
+        540,
+        189,
+        690,
+        402
+      ],
+      "score_after_blur": -1.5362433195114136,
+      "score_drop": 0.034149169921875
+    },
+    {
+      "box_xyxy": [
+        675,
+        189,
+        825,
+        402
+      ],
+      "score_after_blur": -1.494296908378601,
+      "score_drop": -0.0077972412109375
+    },
+    {
+      "box_xyxy": [
+        0,
+        378,
+        150,
+        591
+      ],
+      "score_after_blur": -1.507846713066101,
+      "score_drop": 0.0057525634765625
+    },
+    {
+      "box_xyxy": [
+        135,
+        378,
+        285,
+        591
+      ],
+      "score_after_blur": -1.498691439628601,
+      "score_drop": -0.0034027099609375
+    },
+    {
+      "box_xyxy": [
+        270,
+        378,
+        420,
+        591
+      ],
+      "score_after_blur": -1.470584750175476,
+      "score_drop": -0.0315093994140625
+    },
+    {
+      "box_xyxy": [
+        405,
+        378,
+        555,
+        591
+      ],
+      "score_after_blur": -1.5383490324020386,
+      "score_drop": 0.0362548828125
+    },
+    {
+      "box_xyxy": [
+        540,
+        378,
+        690,
+        591
+      ],
+      "score_after_blur": -1.619266390800476,
+      "score_drop": 0.1171722412109375
+    },
+    {
+      "box_xyxy": [
+        675,
+        378,
+        825,
+        591
+      ],
+      "score_after_blur": -1.5158270597457886,
+      "score_drop": 0.01373291015625
+    },
+    {
+      "box_xyxy": [
+        810,
+        378,
+        960,
+        591
+      ],
+      "score_after_blur": -1.496951937675476,
+      "score_drop": -0.0051422119140625
+    },
+    {
+      "box_xyxy": [
+        0,
+        567,
+        150,
+        780
+      ],
+      "score_after_blur": -1.4978827238082886,
+      "score_drop": -0.00421142578125
+    },
+    {
+      "box_xyxy": [
+        135,
+        567,
+        285,
+        780
+      ],
+      "score_after_blur": -1.4651373624801636,
+      "score_drop": -0.036956787109375
+    },
+    {
+      "box_xyxy": [
+        270,
+        567,
+        420,
+        780
+      ],
+      "score_after_blur": -1.464176058769226,
+      "score_drop": -0.0379180908203125
+    },
+    {
+      "box_xyxy": [
+        405,
+        567,
+        555,
+        780
+      ],
+      "score_after_blur": -1.567996859550476,
+      "score_drop": 0.0659027099609375
+    },
+    {
+      "box_xyxy": [
+        540,
+        567,
+        690,
+        780
+      ],
+      "score_after_blur": -0.44971075654029846,
+      "score_drop": -1.0523833930492401
+    },
+    {
+      "box_xyxy": [
+        675,
+        567,
+        825,
+        780
+      ],
+      "score_after_blur": -1.625095248222351,
+      "score_drop": 0.1230010986328125
+    },
+    {
+      "box_xyxy": [
+        810,
+        567,
+        960,
+        780
+      ],
+      "score_after_blur": -1.494663119316101,
+      "score_drop": -0.0074310302734375
+    },
+    {
+      "box_xyxy": [
+        0,
+        756,
+        150,
+        969
+      ],
+      "score_after_blur": -1.5295294523239136,
+      "score_drop": 0.027435302734375
+    },
+    {
+      "box_xyxy": [
+        135,
+        756,
+        285,
+        969
+      ],
+      "score_after_blur": -1.498508334159851,
+      "score_drop": -0.0035858154296875
+    },
+    {
+      "box_xyxy": [
+        270,
+        756,
+        420,
+        969
+      ],
+      "score_after_blur": -1.4860419034957886,
+      "score_drop": -0.01605224609375
+    },
+    {
+      "box_xyxy": [
+        405,
+        756,
+        555,
+        969
+      ],
+      "score_after_blur": -1.479984164237976,
+      "score_drop": -0.0221099853515625
+    },
+    {
+      "box_xyxy": [
+        540,
+        756,
+        690,
+        969
+      ],
+      "score_after_blur": -1.504245638847351,
+      "score_drop": 0.0021514892578125
+    },
+    {
+      "box_xyxy": [
+        675,
+        756,
+        825,
+        969
+      ],
+      "score_after_blur": -1.5246466398239136,
+      "score_drop": 0.022552490234375
+    },
+    {
+      "box_xyxy": [
+        0,
+        945,
+        150,
+        1158
+      ],
+      "score_after_blur": -1.5052679777145386,
+      "score_drop": 0.003173828125
+    },
+    {
+      "box_xyxy": [
+        135,
+        945,
+        285,
+        1158
+      ],
+      "score_after_blur": -1.5054510831832886,
+      "score_drop": 0.00335693359375
+    },
+    {
+      "box_xyxy": [
+        270,
+        945,
+        420,
+        1158
+      ],
+      "score_after_blur": -1.498874545097351,
+      "score_drop": -0.0032196044921875
+    },
+    {
+      "box_xyxy": [
+        405,
+        945,
+        555,
+        1158
+      ],
+      "score_after_blur": -1.510349154472351,
+      "score_drop": 0.0082550048828125
+    },
+    {
+      "box_xyxy": [
+        540,
+        945,
+        690,
+        1158
+      ],
+      "score_after_blur": -1.4955328702926636,
+      "score_drop": -0.006561279296875
+    },
+    {
+      "box_xyxy": [
+        0,
+        1134,
+        150,
+        1347
+      ],
+      "score_after_blur": -1.5022467374801636,
+      "score_drop": 0.000152587890625
+    },
+    {
+      "box_xyxy": [
+        135,
+        1134,
+        285,
+        1347
+      ],
+      "score_after_blur": -1.4976691007614136,
+      "score_drop": -0.004425048828125
+    },
+    {
+      "box_xyxy": [
+        270,
+        1134,
+        420,
+        1347
+      ],
+      "score_after_blur": -1.4970282316207886,
+      "score_drop": -0.00506591796875
+    }
+  ],
+  "edit_box_xyxy_raw_pixels": [
+    348,
+    423,
+    407,
+    497
+  ],
+  "before_edit": -2.7583656311035156,
+  "after_edit": -1.5020941495895386,
+  "score_change": 1.256271481513977
+}

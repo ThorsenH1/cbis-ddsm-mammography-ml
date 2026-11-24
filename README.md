@@ -8,7 +8,7 @@ The [final experiment](AUROC.md) includes the model ranking, paired test compari
 
 ## Start with one prediction
 
-Open two synthetic mammograms, see how the model prepares them, and follow the eight scores that combine into one breast-level result. The [walkthrough](WALKTHROUGH.md) explains how to rerun the example and what the test numbers mean.
+Open two synthetic mammograms, see how the model prepares them, and follow the eight scores that combine into one breast-level result. The [walkthrough](WALKTHROUGH.md) explains how to rerun the example and what the test numbers mean. [Zoom into an edit and see the model's response](WHERE-THE-MODEL-LOOKS.md)
 
 ![Two example mammograms, their processed inputs and the final model score](examples/workflow.png)
 

@@ -43,3 +43,5 @@ Read the `projections` and `threshold_crossed` fields. Remove the `--mlo` option
 | Trying many blends can overfit validation | Fit each blend on subsets of validation patients and measure it on the other validation patients |
 
 Training teaches the models. Validation chooses models, weights and thresholds. The locked official test estimates how well they generalize. **0.8050 AUROC** means the model usually ranked a randomly chosen malignant breast above a randomly chosen benign breast in this cohort. The 95% interval spans **0.7550–0.8524**. The report includes results from the successive rounds on this same benchmark. [Full benchmark report](AUROC.md)
+
+To see which details can affect a score, open the [before-and-after zoom and region-blur experiment](WHERE-THE-MODEL-LOOKS.md).
