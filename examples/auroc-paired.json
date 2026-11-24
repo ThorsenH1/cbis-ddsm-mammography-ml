@@ -1,0 +1,16 @@
+{
+  "task": "mammo",
+  "purpose": "research and education",
+  "projections": [
+    "CC",
+    "MLO"
+  ],
+  "selection_sha256": "4ad14a87e35acc0f8a1f5de7acc5e362a62cfccecceb0cd5ec093eb1fd9bb083",
+  "scores": {
+    "malignancy_in_lesion_enriched_cohort": {
+      "probability": 0.8588665669002084,
+      "validation_threshold": 0.4364262627436827,
+      "threshold_crossed": true
+    }
+  }
+}

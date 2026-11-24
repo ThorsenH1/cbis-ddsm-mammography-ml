@@ -1,4 +1,6 @@
-# Experiment report
+# Previous model-search report
+
+The [high-resolution experiment](AUROC.md) raised AUROC to 0.7904 on the same official test cohort. The results below document the prior search.
 
 The selected configuration is `incumbent+adapted-dino-224-0.25` with weights {"incumbent-global": 0.75, "adapted-dino-224": 0.25}.
 

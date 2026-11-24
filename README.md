@@ -2,11 +2,11 @@
 
 Multi-view and multi-instance classification of malignancy in a lesion-enriched mammography cohort.
 
-**0.7468 AUROC** versus 0.6858 in the initial run, evaluated on the same 336 test units.
+**0.7904 AUROC** and **0.7542 average precision** on the strict 336-breast official test benchmark. The 95% patient-bootstrap AUROC interval is 0.7347–0.8364.
 
-Selected configuration `incumbent+adapted-dino-224-0.25`. See the [experiment report](REPORT.md), [search trajectories](figures/search.png), [aggregate metrics](metrics.json), and [synthetic prediction example](examples/README.md).
+The [high-resolution experiment](AUROC.md) includes the model ranking, paired test comparison and results by lesion type. See the [previous model search](REPORT.md), [search trajectories](figures/search.png), [previous aggregate metrics](metrics.json), and [synthetic examples](examples/README.md).
 
-![Benchmark figure for CBIS-DDSM Multi-View Mammography](figures/benchmark.png)
+![Aggregate AUROC across four locked mammography experiments](figures/auroc-summary.png)
 
 ## Dataset
 
