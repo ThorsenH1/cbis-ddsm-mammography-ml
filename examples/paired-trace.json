@@ -1,0 +1,130 @@
+{
+  "task": "mammo",
+  "projections": [
+    "CC",
+    "MLO"
+  ],
+  "selection_sha256": "a581b164132b5afbddafcd6a9e23942d7fdb9ff0ec96494becf03ec888e7a7e6",
+  "blend_method": "calibrated-validation-bag",
+  "labels": [
+    "malignancy_in_lesion_enriched_cohort"
+  ],
+  "components": {
+    "previous-locked": {
+      "weight": 0.32064337583034125,
+      "raw_logit": [
+        0.867937627716463
+      ],
+      "weighted_logit": [
+        0.9483165689385089
+      ],
+      "model_input_shape": null
+    },
+    "mammo-clip": {
+      "weight": 0.07081746913319292,
+      "raw_logit": [
+        4.711087226867676
+      ],
+      "weighted_logit": [
+        0.0929757817213977
+      ],
+      "model_input_shape": [
+        1024,
+        640
+      ]
+    },
+    "sharp1536": {
+      "weight": 0.03856370556578646,
+      "raw_logit": [
+        -1.8982877731323242
+      ],
+      "weighted_logit": [
+        -0.05361349271678358
+      ],
+      "model_input_shape": [
+        1536,
+        960
+      ]
+    },
+    "patch-mil": {
+      "weight": 0.06512102778323005,
+      "raw_logit": [
+        -0.6940857867399851
+      ],
+      "weighted_logit": [
+        -0.015030831154409254
+      ],
+      "model_input_shape": [
+        1024,
+        640
+      ]
+    },
+    "specialist1536": {
+      "weight": 0.06949671255738205,
+      "raw_logit": [
+        -1.8018420934677124
+      ],
+      "weighted_logit": [
+        -0.06268841314082108
+      ],
+      "model_input_shape": [
+        1536,
+        960
+      ]
+    },
+    "sharp1536-tta": {
+      "weight": 0.12397071536134022,
+      "raw_logit": [
+        -1.9689664840698242
+      ],
+      "weighted_logit": [
+        -0.19555229343400007
+      ],
+      "model_input_shape": [
+        1536,
+        960
+      ]
+    },
+    "rsna-transfer": {
+      "weight": 0.2212139013565003,
+      "raw_logit": [
+        -3.195246934890747
+      ],
+      "weighted_logit": [
+        -0.24707331930574108
+      ],
+      "model_input_shape": [
+        1536,
+        960
+      ]
+    },
+    "view-supervised": {
+      "weight": 0.09017309241222685,
+      "raw_logit": [
+        -2.7583656311035156
+      ],
+      "weighted_logit": [
+        -0.07390428352928624
+      ],
+      "model_input_shape": [
+        1536,
+        960
+      ]
+    }
+  },
+  "fused_logit": [
+    0.39342971737886534
+  ],
+  "calibration": [
+    [
+      1.8853021834971184,
+      0.23651561867778267
+    ]
+  ],
+  "probability": [
+    0.7267607455744043
+  ],
+  "validation_threshold": [
+    0.354082244778855
+  ]
+}

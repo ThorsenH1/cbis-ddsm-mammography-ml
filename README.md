@@ -6,7 +6,17 @@ Multi-view and multi-instance classification of malignancy in a lesion-enriched 
 
 The [final experiment](AUROC.md) includes the model ranking, paired test comparisons and results by lesion type. The [reproduction guide](REPRODUCE.md) records the training parameters and commands. See the [previous model search](REPORT.md), [search trajectories](figures/search.png), [previous aggregate metrics](metrics.json), and [synthetic examples](examples/README.md).
 
+## Start with one prediction
+
+Open two synthetic mammograms, see how the model prepares them, and follow the eight scores that combine into one breast-level result. The [walkthrough](WALKTHROUGH.md) explains how to rerun the example and what the test numbers mean.
+
+![Two example mammograms, their processed inputs and the final model score](examples/workflow.png)
+
+## Benchmark
+
 ![Aggregate AUROC across the mammography benchmark rounds](figures/auroc-summary.png)
+
+The [research report](RESEARCH.md) documents the external full-resolution experiment and the approach to detecting smaller calcifications.
 
 ## Dataset
 
