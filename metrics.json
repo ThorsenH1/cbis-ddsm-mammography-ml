@@ -1,0 +1,2226 @@
+{
+  "benchmark": {
+    "selection": {
+      "name": "incumbent+adapted-dino-224-0.25",
+      "weights": {
+        "incumbent-global": 0.75,
+        "adapted-dino-224": 0.25
+      },
+      "metrics": {
+        "macro_auroc": 0.7783157013926246,
+        "macro_auprc": 0.744251897358928,
+        "evaluable_labels": 1
+      },
+      "score": 0.7783157013926246
+    },
+    "selection_sha256": "12dffbf7f2af6fb7eabf4c3dd5dc03c86e0989b4356b435f8d7429bb9eea035a",
+    "full_candidate_count": 23,
+    "initial_search_configurations": 48,
+    "test": {
+      "rows": 336,
+      "macro_auroc": 0.7468319760435307,
+      "macro_auprc": 0.7073213120954287,
+      "macro_brier": 0.19979920155288663,
+      "macro_binary_log_loss": 0.5834305969802355,
+      "macro_ece_10": 0.07286706734512648,
+      "labels": {
+        "malignancy_in_lesion_enriched_cohort": {
+          "positives": 139,
+          "negatives": 197,
+          "prevalence": 0.41369047619047616,
+          "auroc": 0.7468319760435307,
+          "auprc": 0.7073213120954287,
+          "brier": 0.19979920155288663,
+          "binary_log_loss": 0.5834305969802355,
+          "ece_10": 0.07286706734512648,
+          "sensitivity": 0.7697841726618705,
+          "specificity": 0.5076142131979695
+        }
+      }
+    },
+    "previous": {
+      "rows": 336,
+      "macro_auroc": 0.6857904539312714,
+      "macro_auprc": 0.6372356401210231,
+      "macro_brier": 0.21796938044930989,
+      "macro_binary_log_loss": 0.6252575857814399,
+      "macro_ece_10": 0.04702531769349038,
+      "labels": {
+        "malignancy_in_lesion_enriched_cohort": {
+          "positives": 139,
+          "negatives": 197,
+          "prevalence": 0.41369047619047616,
+          "auroc": 0.6857904539312714,
+          "auprc": 0.6372356401210231,
+          "brier": 0.21796938044930989,
+          "binary_log_loss": 0.6252575857814399,
+          "ece_10": 0.04702531769349038,
+          "sensitivity": 0.6115107913669064,
+          "specificity": 0.6395939086294417
+        }
+      }
+    },
+    "patient_bootstrap": {
+      "valid_replicates": 400,
+      "patients": 316,
+      "macro_auroc_ci95": [
+        0.6921437020723076,
+        0.7934821683460043
+      ],
+      "macro_auprc_ci95": [
+        0.6284126876028477,
+        0.7744592743304646
+      ],
+      "paired_auroc_delta_ci95": [
+        0.029837947689567133,
+        0.09875465605983173
+      ],
+      "paired_auprc_delta_ci95": [
+        0.02439254646630353,
+        0.11576136327931213
+      ]
+    },
+    "subgroups": {
+      "both_views": {
+        "rows": 251,
+        "macro_auroc": 0.7694104487432557,
+        "macro_auprc": 0.7512712568516619,
+        "macro_brier": 0.18725361392936954,
+        "macro_binary_log_loss": 0.5558261254121301,
+        "macro_ece_10": 0.0687910081948717,
+        "labels": {
+          "malignancy_in_lesion_enriched_cohort": {
+            "positives": 102,
+            "negatives": 149,
+            "prevalence": 0.4063745019920319,
+            "auroc": 0.7694104487432557,
+            "auprc": 0.7512712568516619,
+            "brier": 0.18725361392936954,
+            "binary_log_loss": 0.5558261254121301,
+            "ece_10": 0.0687910081948717,
+            "sensitivity": 0.7450980392156863,
+            "specificity": 0.5570469798657718
+          }
+        }
+      },
+      "single_view": {
+        "rows": 85,
+        "macro_auroc": 0.6447072072072073,
+        "macro_auprc": 0.5667956823077382,
+        "macro_brier": 0.23684558382939003,
+        "macro_binary_log_loss": 0.6649449777284056,
+        "macro_ece_10": 0.1768858065832548,
+        "labels": {
+          "malignancy_in_lesion_enriched_cohort": {
+            "positives": 37,
+            "negatives": 48,
+            "prevalence": 0.43529411764705883,
+            "auroc": 0.6447072072072073,
+            "auprc": 0.5667956823077382,
+            "brier": 0.23684558382939003,
+            "binary_log_loss": 0.6649449777284056,
+            "ece_10": 0.1768858065832548,
+            "sensitivity": 0.8378378378378378,
+            "specificity": 0.3541666666666667
+          }
+        }
+      },
+      "mass_only": {
+        "rows": 190,
+        "macro_auroc": 0.7909111643288858,
+        "macro_auprc": 0.7432304962018632,
+        "macro_brier": 0.18957445289195546,
+        "macro_binary_log_loss": 0.5565328864651224,
+        "macro_ece_10": 0.08718727808320766,
+        "labels": {
+          "malignancy_in_lesion_enriched_cohort": {
+            "positives": 79,
+            "negatives": 111,
+            "prevalence": 0.41578947368421054,
+            "auroc": 0.7909111643288858,
+            "auprc": 0.7432304962018632,
+            "brier": 0.18957445289195546,
+            "binary_log_loss": 0.5565328864651224,
+            "ece_10": 0.08718727808320766,
+            "sensitivity": 0.8607594936708861,
+            "specificity": 0.43243243243243246
+          }
+        }
+      },
+      "calcification_only": {
+        "rows": 146,
+        "macro_auroc": 0.6939922480620155,
+        "macro_auprc": 0.6679893921962724,
+        "macro_brier": 0.21310538131711207,
+        "macro_binary_log_loss": 0.6184344668286704,
+        "macro_ece_10": 0.09601341330572037,
+        "labels": {
+          "malignancy_in_lesion_enriched_cohort": {
+            "positives": 60,
+            "negatives": 86,
+            "prevalence": 0.410958904109589,
+            "auroc": 0.6939922480620155,
+            "auprc": 0.6679893921962724,
+            "brier": 0.21310538131711207,
+            "binary_log_loss": 0.6184344668286704,
+            "ece_10": 0.09601341330572037,
+            "sensitivity": 0.65,
+            "specificity": 0.6046511627906976
+          }
+        }
+      }
+    }
+  },
+  "validation_candidates": [
+    {
+      "name": "incumbent+adapted-dino-224-0.25",
+      "weights": {
+        "incumbent-global": 0.75,
+        "adapted-dino-224": 0.25
+      },
+      "metrics": {
+        "macro_auroc": 0.7783157013926246,
+        "macro_auprc": 0.744251897358928,
+        "evaluable_labels": 1
+      },
+      "score": 0.7783157013926246
+    },
+    {
+      "name": "incumbent+adapted-dino-224-0.50",
+      "weights": {
+        "incumbent-global": 0.5,
+        "adapted-dino-224": 0.5
+      },
+      "metrics": {
+        "macro_auroc": 0.7717410794333872,
+        "macro_auprc": 0.7185658046166168,
+        "evaluable_labels": 1
+      },
+      "score": 0.7717410794333872
+    },
+    {
+      "name": "incumbent+top-two-new",
+      "weights": {
+        "incumbent-global": 0.5,
+        "adapted-dino-224": 0.25,
+        "dino-224": 0.25
+      },
+      "metrics": {
+        "macro_auroc": 0.7651664574741497,
+        "macro_auprc": 0.7171202727577264,
+        "evaluable_labels": 1
+      },
+      "score": 0.7651664574741497
+    },
+    {
+      "name": "incumbent+dino-224-0.25",
+      "weights": {
+        "incumbent-global": 0.75,
+        "dino-224": 0.25
+      },
+      "metrics": {
+        "macro_auroc": 0.7648078417309186,
+        "macro_auprc": 0.730865613608257,
+        "evaluable_labels": 1
+      },
+      "score": 0.7648078417309186
+    },
+    {
+      "name": "incumbent+effb0-160-0.25",
+      "weights": {
+        "incumbent-global": 0.75,
+        "effb0-160": 0.25
+      },
+      "metrics": {
+        "macro_auroc": 0.7574562189946804,
+        "macro_auprc": 0.7530803177180413,
+        "evaluable_labels": 1
+      },
+      "score": 0.7574562189946804
+    },
+    {
+      "name": "incumbent+effb0-224-0.25",
+      "weights": {
+        "incumbent-global": 0.75,
+        "effb0-224": 0.25
+      },
+      "metrics": {
+        "macro_auroc": 0.756709102862949,
+        "macro_auprc": 0.7524650197881052,
+        "evaluable_labels": 1
+      },
+      "score": 0.756709102862949
+    },
+    {
+      "name": "incumbent+effb0-224-0.50",
+      "weights": {
+        "incumbent-global": 0.5,
+        "effb0-224": 0.5
+      },
+      "metrics": {
+        "macro_auroc": 0.7564999103460641,
+        "macro_auprc": 0.7257210066899509,
+        "evaluable_labels": 1
+      },
+      "score": 0.7564999103460641
+    },
+    {
+      "name": "incumbent+effb0-160-0.50",
+      "weights": {
+        "incumbent-global": 0.5,
+        "effb0-160": 0.5
+      },
+      "metrics": {
+        "macro_auroc": 0.7551252166636783,
+        "macro_auprc": 0.7329846827898847,
+        "evaluable_labels": 1
+      },
+      "score": 0.7551252166636783
+    },
+    {
+      "name": "incumbent+adapted-dino-224-0.75",
+      "weights": {
+        "incumbent-global": 0.25,
+        "adapted-dino-224": 0.75
+      },
+      "metrics": {
+        "macro_auroc": 0.747654055346363,
+        "macro_auprc": 0.6952215739640059,
+        "evaluable_labels": 1
+      },
+      "score": 0.747654055346363
+    },
+    {
+      "name": "incumbent+dino-224-0.50",
+      "weights": {
+        "incumbent-global": 0.5,
+        "dino-224": 0.5
+      },
+      "metrics": {
+        "macro_auroc": 0.7475644014105552,
+        "macro_auprc": 0.6978728280687467,
+        "evaluable_labels": 1
+      },
+      "score": 0.7475644014105552
+    },
+    {
+      "name": "incumbent+r50-224-0.25",
+      "weights": {
+        "incumbent-global": 0.75,
+        "r50-224": 0.25
+      },
+      "metrics": {
+        "macro_auroc": 0.7391070467993545,
+        "macro_auprc": 0.7318841348383196,
+        "evaluable_labels": 1
+      },
+      "score": 0.7391070467993545
+    },
+    {
+      "name": "incumbent-global",
+      "weights": {
+        "incumbent-global": 1.0
+      },
+      "metrics": {
+        "macro_auroc": 0.7383001613770845,
+        "macro_auprc": 0.7421847322329103,
+        "evaluable_labels": 1
+      },
+      "score": 0.7383001613770845
+    },
+    {
+      "name": "incumbent+effb0-224-0.75",
+      "weights": {
+        "incumbent-global": 0.25,
+        "effb0-224": 0.75
+      },
+      "metrics": {
+        "macro_auroc": 0.7350427350427351,
+        "macro_auprc": 0.6887676963753666,
+        "evaluable_labels": 1
+      },
+      "score": 0.7350427350427351
+    },
+    {
+      "name": "incumbent+effb0-160-0.75",
+      "weights": {
+        "incumbent-global": 0.25,
+        "effb0-160": 0.75
+      },
+      "metrics": {
+        "macro_auroc": 0.7332496563265795,
+        "macro_auprc": 0.6910579005710281,
+        "evaluable_labels": 1
+      },
+      "score": 0.7332496563265795
+    },
+    {
+      "name": "top-two-new",
+      "weights": {
+        "adapted-dino-224": 0.5,
+        "dino-224": 0.5
+      },
+      "metrics": {
+        "macro_auroc": 0.7332496563265793,
+        "macro_auprc": 0.6791336073931987,
+        "evaluable_labels": 1
+      },
+      "score": 0.7332496563265793
+    },
+    {
+      "name": "incumbent+dino-224-0.75",
+      "weights": {
+        "incumbent-global": 0.25,
+        "dino-224": 0.75
+      },
+      "metrics": {
+        "macro_auroc": 0.7283485745024205,
+        "macro_auprc": 0.6731154810326314,
+        "evaluable_labels": 1
+      },
+      "score": 0.7283485745024205
+    },
+    {
+      "name": "adapted-dino-224",
+      "weights": {
+        "adapted-dino-224": 1.0
+      },
+      "metrics": {
+        "macro_auroc": 0.7221624529316837,
+        "macro_auprc": 0.6781158599300762,
+        "evaluable_labels": 1
+      },
+      "score": 0.7221624529316837
+    },
+    {
+      "name": "incumbent+r50-224-0.50",
+      "weights": {
+        "incumbent-global": 0.5,
+        "r50-224": 0.5
+      },
+      "metrics": {
+        "macro_auroc": 0.7212360289283367,
+        "macro_auprc": 0.700722821385231,
+        "evaluable_labels": 1
+      },
+      "score": 0.7212360289283367
+    },
+    {
+      "name": "dino-224",
+      "weights": {
+        "dino-224": 1.0
+      },
+      "metrics": {
+        "macro_auroc": 0.7158567927798696,
+        "macro_auprc": 0.6584985943514103,
+        "evaluable_labels": 1
+      },
+      "score": 0.7158567927798696
+    },
+    {
+      "name": "incumbent+r50-224-0.75",
+      "weights": {
+        "incumbent-global": 0.25,
+        "r50-224": 0.75
+      },
+      "metrics": {
+        "macro_auroc": 0.7111350188273265,
+        "macro_auprc": 0.6831795962723741,
+        "evaluable_labels": 1
+      },
+      "score": 0.7111350188273265
+    },
+    {
+      "name": "effb0-224",
+      "weights": {
+        "effb0-224": 1.0
+      },
+      "metrics": {
+        "macro_auroc": 0.7067120913274759,
+        "macro_auprc": 0.6517085158997152,
+        "evaluable_labels": 1
+      },
+      "score": 0.7067120913274759
+    },
+    {
+      "name": "effb0-160",
+      "weights": {
+        "effb0-160": 1.0
+      },
+      "metrics": {
+        "macro_auroc": 0.7055167055167055,
+        "macro_auprc": 0.6572987623874565,
+        "evaluable_labels": 1
+      },
+      "score": 0.7055167055167055
+    },
+    {
+      "name": "r50-224",
+      "weights": {
+        "r50-224": 1.0
+      },
+      "metrics": {
+        "macro_auroc": 0.7049787819018588,
+        "macro_auprc": 0.6701659991626926,
+        "evaluable_labels": 1
+      },
+      "score": 0.7049787819018588
+    }
+  ],
+  "search_trials": [
+    {
+      "profile": "effb0-160",
+      "trial": 0,
+      "rung": 1,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.0012,
+        "decay": 0.001,
+        "dropout": 0.0,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.5598637551325121,
+      "metrics": {
+        "macro_auroc": 0.5598637551325121,
+        "macro_auprc": 0.5041242261269947,
+        "evaluable_labels": 1
+      },
+      "seconds": 3.2,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 1,
+      "rung": 1,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.003,
+        "decay": 0.015,
+        "dropout": 0.12,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.5617767823814857,
+      "metrics": {
+        "macro_auroc": 0.5617767823814857,
+        "macro_auprc": 0.5036227958607349,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.69,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 2,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 96,
+        "learning_rate": 0.0005,
+        "decay": 0.003,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.5481989548338932,
+      "metrics": {
+        "macro_auroc": 0.5481989548338932,
+        "macro_auprc": 0.5056081686828622,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.09,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 3,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 160,
+        "learning_rate": 0.0009,
+        "decay": 0.002,
+        "dropout": 0.25,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.5500653228816723,
+      "metrics": {
+        "macro_auroc": 0.5500653228816723,
+        "macro_auprc": 0.5174137097351527,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.8,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 4,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 256,
+        "learning_rate": 0.0015,
+        "decay": 0.008,
+        "dropout": 0.35,
+        "class_power": 0.5,
+        "tile_dropout": 0.08
+      },
+      "epochs": 8,
+      "score": 0.5552911534154535,
+      "metrics": {
+        "macro_auroc": 0.5552911534154535,
+        "macro_auprc": 0.5127991409810271,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.02,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 5,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 128,
+        "learning_rate": 0.002,
+        "decay": 0.015,
+        "dropout": 0.5,
+        "class_power": 0.0,
+        "tile_dropout": 0.12
+      },
+      "epochs": 8,
+      "score": 0.5381672265770809,
+      "metrics": {
+        "macro_auroc": 0.5381672265770809,
+        "macro_auprc": 0.49507356275665776,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.88,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 6,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 256,
+        "learning_rate": 0.00035,
+        "decay": 0.0008,
+        "dropout": 0.33,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.5479656588279209,
+      "metrics": {
+        "macro_auroc": 0.5479656588279209,
+        "macro_auprc": 0.5101518718355833,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.81,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 7,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 96,
+        "learning_rate": 0.00065,
+        "decay": 0.002,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.5525382605449795,
+      "metrics": {
+        "macro_auroc": 0.5525382605449795,
+        "macro_auprc": 0.5050871201692515,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.81,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 8,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 128,
+        "learning_rate": 0.001,
+        "decay": 0.007,
+        "dropout": 0.3,
+        "class_power": 0.5,
+        "tile_dropout": 0.12
+      },
+      "epochs": 8,
+      "score": 0.553471444568869,
+      "metrics": {
+        "macro_auroc": 0.553471444568869,
+        "macro_auprc": 0.508290228021355,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.16,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 9,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 160,
+        "learning_rate": 0.00048,
+        "decay": 0.003,
+        "dropout": 0.35,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.5501119820828667,
+      "metrics": {
+        "macro_auroc": 0.5501119820828667,
+        "macro_auprc": 0.5081180568920325,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.11,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 10,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 224,
+        "learning_rate": 0.0014,
+        "decay": 0.012,
+        "dropout": 0.45,
+        "class_power": 0.5,
+        "tile_dropout": 0.16
+      },
+      "epochs": 8,
+      "score": 0.5670959313176558,
+      "metrics": {
+        "macro_auroc": 0.5670959313176558,
+        "macro_auprc": 0.5197771240177201,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.14,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 11,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 128,
+        "learning_rate": 0.00065,
+        "decay": 0.02,
+        "dropout": 0.5,
+        "class_power": 0.75,
+        "tile_dropout": 0.22
+      },
+      "epochs": 8,
+      "score": 0.5540313549832027,
+      "metrics": {
+        "macro_auroc": 0.5540313549832027,
+        "macro_auprc": 0.5155604495215519,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.14,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 10,
+      "rung": 2,
+      "recipe": {
+        "head": "attention",
+        "width": 224,
+        "learning_rate": 0.0014,
+        "decay": 0.012,
+        "dropout": 0.45,
+        "class_power": 0.5,
+        "tile_dropout": 0.16
+      },
+      "epochs": 20,
+      "score": 0.5958379992534528,
+      "metrics": {
+        "macro_auroc": 0.5958379992534528,
+        "macro_auprc": 0.5789006108070289,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.81,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 1,
+      "rung": 2,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.003,
+        "decay": 0.015,
+        "dropout": 0.12,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 20,
+      "score": 0.6002239641657334,
+      "metrics": {
+        "macro_auroc": 0.6002239641657334,
+        "macro_auprc": 0.5237456455944415,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.8,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 0,
+      "rung": 2,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.0012,
+        "decay": 0.001,
+        "dropout": 0.0,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 20,
+      "score": 0.5845464725643897,
+      "metrics": {
+        "macro_auroc": 0.5845464725643897,
+        "macro_auprc": 0.5110180080764711,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.73,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 4,
+      "rung": 2,
+      "recipe": {
+        "head": "mlp",
+        "width": 256,
+        "learning_rate": 0.0015,
+        "decay": 0.008,
+        "dropout": 0.35,
+        "class_power": 0.5,
+        "tile_dropout": 0.08
+      },
+      "epochs": 20,
+      "score": 0.5693822321761851,
+      "metrics": {
+        "macro_auroc": 0.5693822321761851,
+        "macro_auprc": 0.5336070018528103,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.2,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 1,
+      "rung": 3,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.003,
+        "decay": 0.015,
+        "dropout": 0.12,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 45,
+      "score": 0.6109089212392684,
+      "metrics": {
+        "macro_auroc": 0.6109089212392684,
+        "macro_auprc": 0.5372818210545325,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.62,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-160",
+      "trial": 10,
+      "rung": 3,
+      "recipe": {
+        "head": "attention",
+        "width": 224,
+        "learning_rate": 0.0014,
+        "decay": 0.012,
+        "dropout": 0.45,
+        "class_power": 0.5,
+        "tile_dropout": 0.16
+      },
+      "epochs": 45,
+      "score": 0.6002239641657334,
+      "metrics": {
+        "macro_auroc": 0.6002239641657334,
+        "macro_auprc": 0.5618034468949284,
+        "evaluable_labels": 1
+      },
+      "seconds": 3.36,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 0,
+      "rung": 1,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.0012,
+        "decay": 0.001,
+        "dropout": 0.0,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6020903322135125,
+      "metrics": {
+        "macro_auroc": 0.6020903322135125,
+        "macro_auprc": 0.5732304106857435,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.56,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 1,
+      "rung": 1,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.003,
+        "decay": 0.015,
+        "dropout": 0.12,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6181877566256065,
+      "metrics": {
+        "macro_auroc": 0.6181877566256065,
+        "macro_auprc": 0.5926501763133714,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.55,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 2,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 96,
+        "learning_rate": 0.0005,
+        "decay": 0.003,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6600410600970511,
+      "metrics": {
+        "macro_auroc": 0.6600410600970511,
+        "macro_auprc": 0.6216586119314547,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.7,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 3,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 160,
+        "learning_rate": 0.0009,
+        "decay": 0.002,
+        "dropout": 0.25,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6410507652108995,
+      "metrics": {
+        "macro_auroc": 0.6410507652108995,
+        "macro_auprc": 0.6139470118124903,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.75,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 4,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 256,
+        "learning_rate": 0.0015,
+        "decay": 0.008,
+        "dropout": 0.35,
+        "class_power": 0.5,
+        "tile_dropout": 0.08
+      },
+      "epochs": 8,
+      "score": 0.6051231802911534,
+      "metrics": {
+        "macro_auroc": 0.6051231802911534,
+        "macro_auprc": 0.5860933034779805,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.8,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 5,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 128,
+        "learning_rate": 0.002,
+        "decay": 0.015,
+        "dropout": 0.5,
+        "class_power": 0.0,
+        "tile_dropout": 0.12
+      },
+      "epochs": 8,
+      "score": 0.5782474804031356,
+      "metrics": {
+        "macro_auroc": 0.5782474804031356,
+        "macro_auprc": 0.5697174603060764,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.8,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 6,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 256,
+        "learning_rate": 0.00035,
+        "decay": 0.0008,
+        "dropout": 0.33,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6075961179544606,
+      "metrics": {
+        "macro_auroc": 0.6075961179544606,
+        "macro_auprc": 0.5868092179020215,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.75,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 7,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 96,
+        "learning_rate": 0.00065,
+        "decay": 0.002,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6477230309817097,
+      "metrics": {
+        "macro_auroc": 0.6477230309817097,
+        "macro_auprc": 0.6179935524718202,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.16,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 8,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 128,
+        "learning_rate": 0.001,
+        "decay": 0.007,
+        "dropout": 0.3,
+        "class_power": 0.5,
+        "tile_dropout": 0.12
+      },
+      "epochs": 8,
+      "score": 0.6229936543486375,
+      "metrics": {
+        "macro_auroc": 0.6229936543486375,
+        "macro_auprc": 0.5949498703062783,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.09,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 9,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 160,
+        "learning_rate": 0.00048,
+        "decay": 0.003,
+        "dropout": 0.35,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6340052258305338,
+      "metrics": {
+        "macro_auroc": 0.6340052258305338,
+        "macro_auprc": 0.6006504361654798,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.17,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 10,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 224,
+        "learning_rate": 0.0014,
+        "decay": 0.012,
+        "dropout": 0.45,
+        "class_power": 0.5,
+        "tile_dropout": 0.16
+      },
+      "epochs": 8,
+      "score": 0.601250466592012,
+      "metrics": {
+        "macro_auroc": 0.601250466592012,
+        "macro_auprc": 0.5857940851314578,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.14,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 11,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 128,
+        "learning_rate": 0.00065,
+        "decay": 0.02,
+        "dropout": 0.5,
+        "class_power": 0.75,
+        "tile_dropout": 0.22
+      },
+      "epochs": 8,
+      "score": 0.6078760731616275,
+      "metrics": {
+        "macro_auroc": 0.6078760731616275,
+        "macro_auprc": 0.5906355689404326,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.19,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 2,
+      "rung": 2,
+      "recipe": {
+        "head": "mlp",
+        "width": 96,
+        "learning_rate": 0.0005,
+        "decay": 0.003,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 20,
+      "score": 0.6427304964539008,
+      "metrics": {
+        "macro_auroc": 0.6427304964539008,
+        "macro_auprc": 0.5898278208934432,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.24,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 7,
+      "rung": 2,
+      "recipe": {
+        "head": "attention",
+        "width": 96,
+        "learning_rate": 0.00065,
+        "decay": 0.002,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 20,
+      "score": 0.6512691302724897,
+      "metrics": {
+        "macro_auroc": 0.6512691302724897,
+        "macro_auprc": 0.5957294912453588,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.72,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 3,
+      "rung": 2,
+      "recipe": {
+        "head": "mlp",
+        "width": 160,
+        "learning_rate": 0.0009,
+        "decay": 0.002,
+        "dropout": 0.25,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 20,
+      "score": 0.6532288167226576,
+      "metrics": {
+        "macro_auroc": 0.6532288167226576,
+        "macro_auprc": 0.5982445940281951,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.2,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 9,
+      "rung": 2,
+      "recipe": {
+        "head": "attention",
+        "width": 160,
+        "learning_rate": 0.00048,
+        "decay": 0.003,
+        "dropout": 0.35,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "epochs": 20,
+      "score": 0.671892497200448,
+      "metrics": {
+        "macro_auroc": 0.671892497200448,
+        "macro_auprc": 0.6125355212552734,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.61,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 9,
+      "rung": 3,
+      "recipe": {
+        "head": "attention",
+        "width": 160,
+        "learning_rate": 0.00048,
+        "decay": 0.003,
+        "dropout": 0.35,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "epochs": 45,
+      "score": 0.6653602090332214,
+      "metrics": {
+        "macro_auroc": 0.6653602090332214,
+        "macro_auprc": 0.6081727399434853,
+        "evaluable_labels": 1
+      },
+      "seconds": 3.28,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "r50-224",
+      "trial": 3,
+      "rung": 3,
+      "recipe": {
+        "head": "mlp",
+        "width": 160,
+        "learning_rate": 0.0009,
+        "decay": 0.002,
+        "dropout": 0.25,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 45,
+      "score": 0.6552818215752146,
+      "metrics": {
+        "macro_auroc": 0.6552818215752146,
+        "macro_auprc": 0.5908540293526457,
+        "evaluable_labels": 1
+      },
+      "seconds": 2.66,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 0,
+      "rung": 1,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.0012,
+        "decay": 0.001,
+        "dropout": 0.0,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6033967898469579,
+      "metrics": {
+        "macro_auroc": 0.6033967898469579,
+        "macro_auprc": 0.5629930660952513,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.59,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 1,
+      "rung": 1,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.003,
+        "decay": 0.015,
+        "dropout": 0.12,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6158547965658828,
+      "metrics": {
+        "macro_auroc": 0.6158547965658828,
+        "macro_auprc": 0.5808731533937317,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.59,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 2,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 96,
+        "learning_rate": 0.0005,
+        "decay": 0.003,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.608902575587906,
+      "metrics": {
+        "macro_auroc": 0.608902575587906,
+        "macro_auprc": 0.5605407038380994,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.83,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 3,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 160,
+        "learning_rate": 0.0009,
+        "decay": 0.002,
+        "dropout": 0.25,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6067095931317656,
+      "metrics": {
+        "macro_auroc": 0.6067095931317656,
+        "macro_auprc": 0.578127842069853,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.81,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 4,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 256,
+        "learning_rate": 0.0015,
+        "decay": 0.008,
+        "dropout": 0.35,
+        "class_power": 0.5,
+        "tile_dropout": 0.08
+      },
+      "epochs": 8,
+      "score": 0.5987775289287046,
+      "metrics": {
+        "macro_auroc": 0.5987775289287046,
+        "macro_auprc": 0.5510461647019369,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.84,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 5,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 128,
+        "learning_rate": 0.002,
+        "decay": 0.015,
+        "dropout": 0.5,
+        "class_power": 0.0,
+        "tile_dropout": 0.12
+      },
+      "epochs": 8,
+      "score": 0.5902855543113101,
+      "metrics": {
+        "macro_auroc": 0.5902855543113101,
+        "macro_auprc": 0.5465794802589736,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.84,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 6,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 256,
+        "learning_rate": 0.00035,
+        "decay": 0.0008,
+        "dropout": 0.33,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6339119074281448,
+      "metrics": {
+        "macro_auroc": 0.6339119074281448,
+        "macro_auprc": 0.5838898146902625,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.77,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 7,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 96,
+        "learning_rate": 0.00065,
+        "decay": 0.002,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6004106009705114,
+      "metrics": {
+        "macro_auroc": 0.6004106009705114,
+        "macro_auprc": 0.5570794844410413,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.06,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 8,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 128,
+        "learning_rate": 0.001,
+        "decay": 0.007,
+        "dropout": 0.3,
+        "class_power": 0.5,
+        "tile_dropout": 0.12
+      },
+      "epochs": 8,
+      "score": 0.6131952220977976,
+      "metrics": {
+        "macro_auroc": 0.6131952220977976,
+        "macro_auprc": 0.5614954375731606,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.08,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 9,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 160,
+        "learning_rate": 0.00048,
+        "decay": 0.003,
+        "dropout": 0.35,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6079693915640164,
+      "metrics": {
+        "macro_auroc": 0.6079693915640164,
+        "macro_auprc": 0.5751394132570714,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.0,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 10,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 224,
+        "learning_rate": 0.0014,
+        "decay": 0.012,
+        "dropout": 0.45,
+        "class_power": 0.5,
+        "tile_dropout": 0.16
+      },
+      "epochs": 8,
+      "score": 0.6021836506159015,
+      "metrics": {
+        "macro_auroc": 0.6021836506159015,
+        "macro_auprc": 0.5359607890570733,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.06,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 11,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 128,
+        "learning_rate": 0.00065,
+        "decay": 0.02,
+        "dropout": 0.5,
+        "class_power": 0.75,
+        "tile_dropout": 0.22
+      },
+      "epochs": 8,
+      "score": 0.5995707353490108,
+      "metrics": {
+        "macro_auroc": 0.5995707353490108,
+        "macro_auprc": 0.5485266580869692,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.11,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 6,
+      "rung": 2,
+      "recipe": {
+        "head": "mlp",
+        "width": 256,
+        "learning_rate": 0.00035,
+        "decay": 0.0008,
+        "dropout": 0.33,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "epochs": 20,
+      "score": 0.6141750653228817,
+      "metrics": {
+        "macro_auroc": 0.6141750653228817,
+        "macro_auprc": 0.5628415756046888,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.19,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 1,
+      "rung": 2,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.003,
+        "decay": 0.015,
+        "dropout": 0.12,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 20,
+      "score": 0.6515490854796566,
+      "metrics": {
+        "macro_auroc": 0.6515490854796566,
+        "macro_auprc": 0.6037157038870075,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.77,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 8,
+      "rung": 2,
+      "recipe": {
+        "head": "attention",
+        "width": 128,
+        "learning_rate": 0.001,
+        "decay": 0.007,
+        "dropout": 0.3,
+        "class_power": 0.5,
+        "tile_dropout": 0.12
+      },
+      "epochs": 20,
+      "score": 0.6193542366554685,
+      "metrics": {
+        "macro_auroc": 0.6193542366554685,
+        "macro_auprc": 0.5644383528812967,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.69,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 2,
+      "rung": 2,
+      "recipe": {
+        "head": "mlp",
+        "width": 96,
+        "learning_rate": 0.0005,
+        "decay": 0.003,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 20,
+      "score": 0.6266797312430012,
+      "metrics": {
+        "macro_auroc": 0.6266797312430012,
+        "macro_auprc": 0.57165615681261,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.33,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 1,
+      "rung": 3,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.003,
+        "decay": 0.015,
+        "dropout": 0.12,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 45,
+      "score": 0.6562150055991042,
+      "metrics": {
+        "macro_auroc": 0.6562150055991042,
+        "macro_auprc": 0.604313107781854,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.8,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 2,
+      "rung": 3,
+      "recipe": {
+        "head": "mlp",
+        "width": 96,
+        "learning_rate": 0.0005,
+        "decay": 0.003,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 45,
+      "score": 0.6229936543486375,
+      "metrics": {
+        "macro_auroc": 0.6229936543486375,
+        "macro_auprc": 0.5771395464977331,
+        "evaluable_labels": 1
+      },
+      "seconds": 2.61,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 0,
+      "rung": 1,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.0012,
+        "decay": 0.001,
+        "dropout": 0.0,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.580160507652109,
+      "metrics": {
+        "macro_auroc": 0.580160507652109,
+        "macro_auprc": 0.5114916057651826,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.48,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 1,
+      "rung": 1,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.003,
+        "decay": 0.015,
+        "dropout": 0.12,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6120287420679357,
+      "metrics": {
+        "macro_auroc": 0.6120287420679357,
+        "macro_auprc": 0.5587991208734335,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.5,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 2,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 96,
+        "learning_rate": 0.0005,
+        "decay": 0.003,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6272396416573349,
+      "metrics": {
+        "macro_auroc": 0.6272396416573349,
+        "macro_auprc": 0.6030002458858066,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.81,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 3,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 160,
+        "learning_rate": 0.0009,
+        "decay": 0.002,
+        "dropout": 0.25,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6004572601717059,
+      "metrics": {
+        "macro_auroc": 0.6004572601717059,
+        "macro_auprc": 0.5633793490789661,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.83,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 4,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 256,
+        "learning_rate": 0.0015,
+        "decay": 0.008,
+        "dropout": 0.35,
+        "class_power": 0.5,
+        "tile_dropout": 0.08
+      },
+      "epochs": 8,
+      "score": 0.6019503546099291,
+      "metrics": {
+        "macro_auroc": 0.6019503546099291,
+        "macro_auprc": 0.5495535574217354,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.86,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 5,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 128,
+        "learning_rate": 0.002,
+        "decay": 0.015,
+        "dropout": 0.5,
+        "class_power": 0.0,
+        "tile_dropout": 0.12
+      },
+      "epochs": 8,
+      "score": 0.577220977976857,
+      "metrics": {
+        "macro_auroc": 0.577220977976857,
+        "macro_auprc": 0.5176733290428,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.81,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 6,
+      "rung": 1,
+      "recipe": {
+        "head": "mlp",
+        "width": 256,
+        "learning_rate": 0.00035,
+        "decay": 0.0008,
+        "dropout": 0.33,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6292459873086972,
+      "metrics": {
+        "macro_auroc": 0.6292459873086972,
+        "macro_auprc": 0.5914746353086433,
+        "evaluable_labels": 1
+      },
+      "seconds": 0.8,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 7,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 96,
+        "learning_rate": 0.00065,
+        "decay": 0.002,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6185143710339679,
+      "metrics": {
+        "macro_auroc": 0.6185143710339679,
+        "macro_auprc": 0.5866605170234365,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.09,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 8,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 128,
+        "learning_rate": 0.001,
+        "decay": 0.007,
+        "dropout": 0.3,
+        "class_power": 0.5,
+        "tile_dropout": 0.12
+      },
+      "epochs": 8,
+      "score": 0.6020903322135126,
+      "metrics": {
+        "macro_auroc": 0.6020903322135126,
+        "macro_auprc": 0.555938915449683,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.05,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 9,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 160,
+        "learning_rate": 0.00048,
+        "decay": 0.003,
+        "dropout": 0.35,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "epochs": 8,
+      "score": 0.6028368794326241,
+      "metrics": {
+        "macro_auroc": 0.6028368794326241,
+        "macro_auprc": 0.56914393110349,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.05,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 10,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 224,
+        "learning_rate": 0.0014,
+        "decay": 0.012,
+        "dropout": 0.45,
+        "class_power": 0.5,
+        "tile_dropout": 0.16
+      },
+      "epochs": 8,
+      "score": 0.6178611422172453,
+      "metrics": {
+        "macro_auroc": 0.6178611422172453,
+        "macro_auprc": 0.5733227272553523,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.12,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 11,
+      "rung": 1,
+      "recipe": {
+        "head": "attention",
+        "width": 128,
+        "learning_rate": 0.00065,
+        "decay": 0.02,
+        "dropout": 0.5,
+        "class_power": 0.75,
+        "tile_dropout": 0.22
+      },
+      "epochs": 8,
+      "score": 0.5921052631578948,
+      "metrics": {
+        "macro_auroc": 0.5921052631578948,
+        "macro_auprc": 0.5341549496143366,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.08,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 6,
+      "rung": 2,
+      "recipe": {
+        "head": "mlp",
+        "width": 256,
+        "learning_rate": 0.00035,
+        "decay": 0.0008,
+        "dropout": 0.33,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "epochs": 20,
+      "score": 0.6514557670772677,
+      "metrics": {
+        "macro_auroc": 0.6514557670772677,
+        "macro_auprc": 0.6355518718621043,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.16,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 2,
+      "rung": 2,
+      "recipe": {
+        "head": "mlp",
+        "width": 96,
+        "learning_rate": 0.0005,
+        "decay": 0.003,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 20,
+      "score": 0.650895856662934,
+      "metrics": {
+        "macro_auroc": 0.650895856662934,
+        "macro_auprc": 0.6444478959043017,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.11,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 7,
+      "rung": 2,
+      "recipe": {
+        "head": "attention",
+        "width": 96,
+        "learning_rate": 0.00065,
+        "decay": 0.002,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 20,
+      "score": 0.6475363941769318,
+      "metrics": {
+        "macro_auroc": 0.6475363941769318,
+        "macro_auprc": 0.6329609822971589,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.72,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 10,
+      "rung": 2,
+      "recipe": {
+        "head": "attention",
+        "width": 224,
+        "learning_rate": 0.0014,
+        "decay": 0.012,
+        "dropout": 0.45,
+        "class_power": 0.5,
+        "tile_dropout": 0.16
+      },
+      "epochs": 20,
+      "score": 0.6075961179544606,
+      "metrics": {
+        "macro_auroc": 0.6075961179544606,
+        "macro_auprc": 0.574726076853568,
+        "evaluable_labels": 1
+      },
+      "seconds": 1.75,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 6,
+      "rung": 3,
+      "recipe": {
+        "head": "mlp",
+        "width": 256,
+        "learning_rate": 0.00035,
+        "decay": 0.0008,
+        "dropout": 0.33,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "epochs": 45,
+      "score": 0.6453434117207913,
+      "metrics": {
+        "macro_auroc": 0.6453434117207913,
+        "macro_auprc": 0.6198902643617153,
+        "evaluable_labels": 1
+      },
+      "seconds": 2.62,
+      "skipped_fp16_steps": 0
+    },
+    {
+      "profile": "dino-224",
+      "trial": 2,
+      "rung": 3,
+      "recipe": {
+        "head": "mlp",
+        "width": 96,
+        "learning_rate": 0.0005,
+        "decay": 0.003,
+        "dropout": 0.18,
+        "class_power": 0.0,
+        "tile_dropout": 0.0
+      },
+      "epochs": 45,
+      "score": 0.6375513251213138,
+      "metrics": {
+        "macro_auroc": 0.6375513251213138,
+        "macro_auprc": 0.625694217589762,
+        "evaluable_labels": 1
+      },
+      "seconds": 2.64,
+      "skipped_fp16_steps": 0
+    }
+  ],
+  "profile_winners": [
+    {
+      "profile": "effb0-160",
+      "trial": 1,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.003,
+        "decay": 0.015,
+        "dropout": 0.12,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "seeds": [
+        3894,
+        4304
+      ],
+      "fit_epochs": 45,
+      "validation": {
+        "macro_auroc": 0.7055167055167055,
+        "macro_auprc": 0.6572987623874565,
+        "evaluable_labels": 1
+      },
+      "score": 0.7055167055167055
+    },
+    {
+      "profile": "r50-224",
+      "trial": 9,
+      "recipe": {
+        "head": "attention",
+        "width": 160,
+        "learning_rate": 0.00048,
+        "decay": 0.003,
+        "dropout": 0.35,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "seeds": [
+        3894,
+        4304
+      ],
+      "fit_epochs": 45,
+      "validation": {
+        "macro_auroc": 0.7049787819018588,
+        "macro_auprc": 0.6701659991626926,
+        "evaluable_labels": 1
+      },
+      "score": 0.7049787819018588
+    },
+    {
+      "profile": "effb0-224",
+      "trial": 1,
+      "recipe": {
+        "head": "linear",
+        "width": 0,
+        "learning_rate": 0.003,
+        "decay": 0.015,
+        "dropout": 0.12,
+        "class_power": 0.5,
+        "tile_dropout": 0.0
+      },
+      "seeds": [
+        3894,
+        4304
+      ],
+      "fit_epochs": 45,
+      "validation": {
+        "macro_auroc": 0.7067120913274759,
+        "macro_auprc": 0.6517085158997152,
+        "evaluable_labels": 1
+      },
+      "score": 0.7067120913274759
+    },
+    {
+      "profile": "dino-224",
+      "trial": 6,
+      "recipe": {
+        "head": "mlp",
+        "width": 256,
+        "learning_rate": 0.00035,
+        "decay": 0.0008,
+        "dropout": 0.33,
+        "class_power": 0.25,
+        "tile_dropout": 0.0
+      },
+      "seeds": [
+        3894,
+        4304
+      ],
+      "fit_epochs": 45,
+      "validation": {
+        "macro_auroc": 0.7158567927798696,
+        "macro_auprc": 0.6584985943514103,
+        "evaluable_labels": 1
+      },
+      "score": 0.7158567927798696
+    }
+  ]
+}

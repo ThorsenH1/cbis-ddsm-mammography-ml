@@ -1,0 +1,11 @@
+{
+  "input": "synthetic radiography phantom",
+  "model": "incumbent+adapted-dino-224-0.25",
+  "projections": [
+    "CC",
+    "MLO"
+  ],
+  "probabilities": {
+    "malignancy_in_lesion_enriched_cohort": 0.95061877445592
+  }
+}
