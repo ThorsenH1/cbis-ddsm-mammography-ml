@@ -42,3 +42,30 @@ Add the candidate `fine-texture-mil=runs/mammo-fine-texture@mammo-spatial1536` t
 ## A second source of breast images
 
 The Chinese Mammography Database contains digital mammograms and biopsy-confirmed labels. It gives the experiment a way to learn from a second source and to reserve separate patients for evaluation. The data use different acquisition equipment from CBIS-DDSM. Transfer between the two is a research question. [CMMD data and citation](https://doi.org/10.7937/tcia.eqde-4b16)
+
+The CMMD cache starts from 5,202 DICOM files. We group images by patient and breast side and keep standard CC and MLO projections. A fixed patient split produced 1,242 training breasts, 275 validation breasts and 350 test breasts. The duplicate audit excluded five breasts from patients linked by repeated images. The CBIS-only EfficientNet starts from the checkpoint used in the main project. The CMMD-adapted version starts there too, then learns from CMMD training patients. CMMD validation selected epoch 6 of 7.
+
+| Configuration on the same 350 CMMD breasts from 336 test patients | AUROC | 95% patient bootstrap interval | Average precision |
+| --- | ---: | ---: | ---: |
+| CBIS-only, external evaluation | 0.7271 | 0.6669–0.7862 | 0.8826 |
+| CMMD-adapted, held-out patients from the adaptation dataset | **0.8415** | **0.7974–0.8807** | **0.9404** |
+
+The paired change in AUROC was +0.1143 with a 95% interval of +0.0614 to +0.1703. This compares complete configurations at input heights of 1,536 and 1,280 pixels. The test set contains 260 malignant and 90 benign breasts, which gives average precision a prevalence baseline of 0.7429. The project's separate official CBIS-DDSM benchmark is reported above.
+
+### Reproduce the CMMD comparison
+
+Download the DICOM release and its clinical spreadsheet from TCIA. Keep the `$p`, `$hf`, `$experiment` and `$runs` variables and the trained sharp checkpoint from the [main reproduction guide](REPRODUCE.md).
+
+```powershell
+$cmmdDicom = 'D:/data/CMMD/dicom'
+$cmmdLabels = 'D:/data/CMMD/clinical.xlsx'
+$cmmdCache = "$experiment/cmmd/cache1536"
+& $p -m medimage.mammo_cmmd --dicom $cmmdDicom --labels $cmmdLabels --output $cmmdCache `
+    --height 1536 --workers 5 --expected 5202
+& $p -m medimage.auc_train mammo --cohort $cmmdCache --pixels $cmmdCache --backbone effb0 --weights $hf `
+    --parent "$runs/mammo-sharp1536/best.pt" --domain-parent --output "$runs/cmmd-effb0" `
+    --epochs 7 --batch 3 --accumulate 5 --resolution 1280 --depth 3 --lr 0.000065 --head-lr 0.00024 `
+    --class-power 0.23 --dropout 0.38 --seed 5333
+& $p -m medimage.mammo_cmmd_evaluate --cohort $cmmdCache --work $experiment --weights $hf `
+    --output "$experiment/cmmd/evaluation"
+```
