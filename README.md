@@ -2,11 +2,11 @@
 
 Multi-view and multi-instance classification of malignancy in a lesion-enriched mammography cohort.
 
-**0.7904 AUROC** and **0.7542 average precision** on the strict 336-breast official test benchmark. The 95% patient-bootstrap AUROC interval is 0.7347–0.8364.
+**0.8050 AUROC** and **0.7762 average precision** on the strict 336-breast official test benchmark. The 95% patient-bootstrap AUROC interval is 0.7550–0.8524.
 
-The [high-resolution experiment](AUROC.md) includes the model ranking, paired test comparison and results by lesion type. See the [previous model search](REPORT.md), [search trajectories](figures/search.png), [previous aggregate metrics](metrics.json), and [synthetic examples](examples/README.md).
+The [final experiment](AUROC.md) includes the model ranking, paired test comparisons and results by lesion type. The [reproduction guide](REPRODUCE.md) records the training parameters and commands. See the [previous model search](REPORT.md), [search trajectories](figures/search.png), [previous aggregate metrics](metrics.json), and [synthetic examples](examples/README.md).
 
-![Aggregate AUROC across four locked mammography experiments](figures/auroc-summary.png)
+![Aggregate AUROC across the mammography benchmark rounds](figures/auroc-summary.png)
 
 ## Dataset
 
@@ -55,10 +55,10 @@ The runner writes the initial experiment under `artifacts/` and the extended sea
 
 ## Predict from raw input
 
-Use the model selection and checkpoint roots produced by the runner.
+After running the [final training and validation lock](REPRODUCE.md), pass one or both whole projections to the frozen ensemble.
 
 ```powershell
-& $p -m medimage.search_predict radiography --selection search-artifacts/evaluation/mammo/selection.json --search search-artifacts/runs/mammo --weights $hf --original artifacts --cc 'C:/images/cc.jpg' --mlo 'C:/images/mlo.jpg' --output search-artifacts/inference/mammo.json
+& $p -m medimage.auc_predict --selection "$experiment/evaluation/mammo-locked-4/selection.json" --work $experiment --previous $search --original artifacts --weights $hf --cc 'C:/images/cc.jpg' --mlo 'C:/images/mlo.jpg' --output "$experiment/mammo-prediction.json"
 ```
 
 The [example](examples/README.md) runs the selected local models on deterministic synthetic inputs. This is a research and education project.

@@ -5,11 +5,11 @@
     "CC",
     "MLO"
   ],
-  "selection_sha256": "4ad14a87e35acc0f8a1f5de7acc5e362a62cfccecceb0cd5ec093eb1fd9bb083",
+  "selection_sha256": "a581b164132b5afbddafcd6a9e23942d7fdb9ff0ec96494becf03ec888e7a7e6",
   "scores": {
     "malignancy_in_lesion_enriched_cohort": {
-      "probability": 0.8588665669002084,
-      "validation_threshold": 0.4364262627436827,
+      "probability": 0.7267607455744043,
+      "validation_threshold": 0.354082244778855,
       "threshold_crossed": true
     }
   }
