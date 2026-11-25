@@ -52,6 +52,22 @@ The CMMD cache starts from 5,202 DICOM files. We group images by patient and bre
 
 The paired change in AUROC was +0.1143 with a 95% interval of +0.0614 to +0.1703. This compares complete configurations at input heights of 1,536 and 1,280 pixels. The test set contains 260 malignant and 90 benign breasts, which gives average precision a prevalence baseline of 0.7429. The project's separate official CBIS-DDSM benchmark is reported above.
 
+### Does CMMD adaptation improve the CBIS-DDSM model?
+
+I started from the CMMD-adapted checkpoint and fitted it again on CBIS-DDSM training breasts at an input height of 1,536 pixels. The new branch reached **0.7785 validation AUROC**. A search across 675 configurations chose the final blend on patient-grouped validation. Its validation AUROC was **0.8332**, and its CMMD branch weight was **2.24%**. The complete model was locked before running the official CBIS-DDSM test.
+
+| Metric on the same 336 breasts from 316 test patients | Published ensemble | CMMD-transfer blend |
+| --- | ---: | ---: |
+| AUROC | **0.8050** | 0.7882 |
+| Average precision | **0.7762** | 0.7574 |
+| Brier score, lower is better | **0.1745** | 0.1846 |
+| Mass AUROC | **0.8602** | 0.8435 |
+| Calcification AUROC | **0.7341** | 0.7174 |
+
+The blend's 95% patient-bootstrap AUROC interval was **0.7359–0.8330**. The published CBIS-DDSM model remains the model with 0.8050 AUROC. The held-out CMMD gain above measures adaptation to CMMD patients. This experiment measures the result of transferring the adapted model back to CBIS-DDSM.
+
+Using matched resamples of the same 316 test patients, the AUROC change was **−0.0168**, with a paired 95% interval of **−0.0349 to +0.0004**. Average precision changed by **−0.0188**, with a paired interval of **−0.0371 to −0.0013**.
+
 ### Reproduce the CMMD comparison
 
 Download the DICOM release and its clinical spreadsheet from TCIA. Keep the `$p`, `$hf`, `$experiment` and `$runs` variables and the trained sharp checkpoint from the [main reproduction guide](REPRODUCE.md).
@@ -68,4 +84,10 @@ $cmmdCache = "$experiment/cmmd/cache1536"
     --class-power 0.23 --dropout 0.38 --seed 5333
 & $p -m medimage.mammo_cmmd_evaluate --cohort $cmmdCache --work $experiment --weights $hf `
     --output "$experiment/cmmd/evaluation"
+& $p -m medimage.auc_train mammo --cohort $cohort --pixels $pixels1536 --backbone effb0 --weights $hf `
+    --parent "$runs/cmmd-effb0/best.pt" --domain-parent --output "$runs/mammo-cmmd-transfer" `
+    --epochs 6 --batch 2 --accumulate 8 --resolution 1536 --depth 3 --auxiliary 0.34 `
+    --lr 0.000042 --head-lr 0.00015 --class-power 0.24 --dropout 0.38 --seed 5365 --block 128 --affine
 ```
+
+Extend the [published validation search](REPRODUCE.md#lock-on-validation-then-run-the-official-test) with the fine-texture candidate above and `cmmd-transfer=runs/mammo-cmmd-transfer@mammo-spatial1536`. Use a new evaluation directory and keep the patient-grouped calibration and blend settings.
