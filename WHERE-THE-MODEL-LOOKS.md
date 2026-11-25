@@ -18,11 +18,15 @@ I also measured whether the projection-supervised component can point to the les
 
 | Masked projections | Count | Strongest cell overlaps | Tissue center overlaps | Expected overlap for a random tissue cell |
 | --- | ---: | ---: | ---: | ---: |
-| All usable projections | 335 | **40.9%** | 6.0% | 3.0% |
+| All usable projections | 568 | **39.8%** | 8.3% | 4.0% |
 | With a mass mask | 330 | **40.9%** | 6.1% | 3.0% |
-| With a calcification mask | 5 | 2 of 5 | 0 of 5 | 1.4% |
+| With a calcification mask | 238 | **38.2%** | 11.3% | 5.4% |
 
-The 335 projections came from 185 held-out patients. The 95% patient-bootstrap interval for the overall overlap rate was **35.4%–46.9%**. This checks a single location in one ensemble component and uses a coarser grid than the original images. For calcifications, the local archive matched full-size masks for only **5 of 294** linked annotation rows. Five examples are too few to establish how well the model can locate calcifications. The synthetic illustration above measures the change from local blur.
+The 568 projections came from 311 held-out patients. The 95% patient-bootstrap interval was **35.4%–44.2%** overall and **31.0%–45.5%** for calcifications. The model's strongest cell overlapped the marked calcification cluster in **91 of 238** projections. This measures overlap at the model grid's resolution and uses the 568 test projections that passed the mask checks. The synthetic illustration above measures the change from local blur.
+
+### Recover missing calcification mask labels
+
+Requiring an explicit description in the local JPEG metadata originally yielded just five calcification projections. The official test annotation rows pointed to series containing an unlabeled full-size candidate and a smaller cropped image. For each unlabeled candidate, I checked the referenced series, exact full-image dimensions, grayscale range, a near-binary pixel histogram, and alignment with the breast. Two candidate rows failed the size check and 22 aligned masks had less than 90% of their marked area on breast tissue. This yielded 265 additional annotation rows, which map to 233 additional projections after combining lesions on the same image. The held-out masks were used for this audit after the classifier was frozen. [CBIS-DDSM release and annotation tables](https://www.cancerimagingarchive.net/collection/cbis-ddsm/)
 
 ## Reproduce the test
 
@@ -34,5 +38,7 @@ Use the trained models and locked selection from the [main reproduction guide](R
     --output "$evaluation/region-probe"
 & $p -m medimage.mammo_region_audit --root $data --cohort $cohort `
     --selection "$evaluation/selection.json" --work $experiment --weights $hf `
-    --component view-supervised --output "$evaluation/region-audit.json"
+    --component view-supervised --recover-unlabeled-masks --output "$evaluation/region-audit.json"
 ```
+
+To reproduce the smaller audit using explicitly named masks, omit `--recover-unlabeled-masks` and write to a separate output file.
