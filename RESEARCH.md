@@ -140,3 +140,20 @@ The original-image component reached its highest validation AUROC after **one ep
 | Calcification AUROC | **0.7341** | 0.7233 |
 
 The 95% patient-bootstrap interval for the new blend was **0.7396–0.8351**. The paired AUROC change was **−0.0156**, with a 95% interval of **−0.0376 to +0.0072**. The published model remains the **0.8050** ensemble. This comparison tests the full blend, including how validation chose the weights. [See where the existing model places its strongest image regions](WHERE-THE-MODEL-LOOKS.md)
+
+## Train a patch detector on the original images
+
+The whole-breast DICOM model still shrinks local patterns before the final prediction. This experiment cuts small patches from the aligned 16-bit images, then lets an attention model combine several candidates from both projections. It uses the same patch scales, seeds and training schedule as the earlier fine-texture experiment on JPEGs. This makes the input representation the main difference between the two runs.
+
+The box preparation reopens the original DICOMs for training breasts and projects the lesion masks into the frozen 16-bit image grid. It checks that the pixels and projected masks match the existing cache. Each of three detectors learns from two patient groups and proposes patches for the third. The breast classifier learns from these held-out proposals and is scored on the separate validation breasts. At inference the model proposes patches from the image pixels.
+
+```powershell
+$nativeBoxes = "$experiment/native-mammograms/training-boxes.npz"
+& $p -m medimage.mammo_native_boxes --cohort $cohort --plan $dicomPlan --dicom $nativeDicom `
+    --project-root $data --pixels $nativePixels --output $nativeBoxes --workers 3
+& $p -m medimage.auc_mammo_mil --cohort $cohort --pixels $nativePixels --weights $hf `
+    --native-boxes $nativeBoxes --output "$runs/mammo-native-fine-texture" `
+    --patch-epochs 8 --epochs 18 --seed 5183 --fine-texture
+```
+
+Use `native-fine-texture=runs/mammo-native-fine-texture@mammo-native1536` when comparing the new branch on validation. The DICOM and JPEG ensemble components each take their matching input format.
