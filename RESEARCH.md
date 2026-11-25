@@ -91,3 +91,38 @@ $cmmdCache = "$experiment/cmmd/cache1536"
 ```
 
 Extend the [published validation search](REPRODUCE.md#lock-on-validation-then-run-the-official-test) with the fine-texture candidate above and `cmmd-transfer=runs/mammo-cmmd-transfer@mammo-spatial1536`. Use a new evaluation directory and keep the patient-grouped calibration and blend settings.
+
+## Keeping small grayscale changes from the original images
+
+The current model reads 8-bit JPEGs. The public archive also has the original mammograms. In a pilot, I matched 24 training CC views to their DICOM originals and checked the same annotated regions in both versions. The files had the same image dimensions and orientation in all 24 pairs. All originals stored 16-bit pixels.
+
+| Median within the annotated region | Original DICOM | JPEG |
+| --- | ---: | ---: |
+| Distinct gray levels in 12 mass views | 949 | 80 |
+| Distinct gray levels in 12 calcification views | 1,067.5 | 97 |
+
+After matching the brightness scale, the median local texture correlation was 0.791 for mass regions and 0.811 for calcification regions. The pilot measures differences in the image signal. The breast-level evaluation measures whether the extra signal improves predictions. [Original CBIS-DDSM archive](https://www.cancerimagingarchive.net/collection/cbis-ddsm/) · [NCI Imaging Data Commons](https://datacommons.cancer.gov/repository/imaging-data-commons)
+
+### Reproduce the high-precision candidate
+
+The registry resolves 2,897 original projections to the three existing partitions. The preparation command keeps native precision through image alignment and resizing, and adds a smaller contrast-enhanced component for compatibility with the starting model. It loads lesion annotations for training breasts. The raw data require around 96 GB and the 16-bit cache requires around 10 GB.
+
+I verified the full reader, training and prediction path on four original projections from the project's training partition. Running inference directly from the two DICOM files used for smoke validation reproduced both cached logits. Full-cohort performance is measured separately on the published CBIS-DDSM split.
+
+```powershell
+& $p -m pip install 'idc-index==0.13.5' 'idc-index-data==25.0.5'
+$nativeRoot = "$experiment/native-mammograms"
+$dicomPlan = "$nativeRoot/registry.json"
+$nativeDicom = "$nativeRoot/dicom"
+$nativePixels = "$experiment/pixels/mammo-native1536"
+& $p -m medimage.mammo_native_registry plan --cohort $cohort --project-root $data --plan $dicomPlan
+& $p -m medimage.mammo_native_registry download --plan $dicomPlan --destination $nativeDicom
+& $p -m medimage.mammo_native --cohort $cohort --plan $dicomPlan --dicom $nativeDicom `
+    --project-root $data --output $nativePixels --height 1536 --workers 4
+& $p -m medimage.auc_train mammo --cohort $cohort --pixels $nativePixels --backbone effb0 --weights $hf `
+    --parent "$runs/mammo-view-supervised/best.pt" --output "$runs/mammo-native1536" --view-supervision `
+    --epochs 6 --batch 2 --accumulate 8 --resolution 1536 --depth 3 --auxiliary 0.31 `
+    --lr 0.000040 --head-lr 0.000145 --class-power 0.21 --dropout 0.38 --seed 5701 --block 112 --affine
+```
+
+Add `native1536=runs/mammo-native1536@mammo-native1536` to the validation candidate list. The locked test command reads the matching original DICOM projections for this component. To reproduce a mixed-format prediction from files, supply the matching DICOM projections through `--native-cc` and `--native-mlo`, along with the JPEG projections required by the other components.
