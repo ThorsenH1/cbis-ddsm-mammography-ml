@@ -126,3 +126,17 @@ $nativePixels = "$experiment/pixels/mammo-native1536"
 ```
 
 Add `native1536=runs/mammo-native1536@mammo-native1536` to the validation candidate list. The locked test command reads the matching original DICOM projections for this component. To reproduce a mixed-format prediction from files, supply the matching DICOM projections through `--native-cc` and `--native-mlo`, along with the JPEG projections required by the other components.
+
+### What changed on the official test?
+
+The original-image component reached its highest validation AUROC after **one epoch of six**, at **0.7988**. The later epochs lowered training loss while validation AUROC fell. The selection compared **852 recipes** and locked a blend with **17.5%** weight on the native-image component and **0.8283** patient-grouped validation AUROC. I evaluated that fixed blend on the same official test breasts as the published model.
+
+| Metric across 336 breasts from 316 test patients | Published ensemble | Blend with original DICOMs |
+| --- | ---: | ---: |
+| AUROC | **0.8050** | 0.7894 |
+| Average precision | **0.7762** | 0.7561 |
+| Brier score, lower is better | **0.1745** | 0.1840 |
+| Mass AUROC | **0.8602** | 0.8429 |
+| Calcification AUROC | **0.7341** | 0.7233 |
+
+The 95% patient-bootstrap interval for the new blend was **0.7396–0.8351**. The paired AUROC change was **−0.0156**, with a 95% interval of **−0.0376 to +0.0072**. The published model remains the **0.8050** ensemble. This comparison tests the full blend, including how validation chose the weights. [See where the existing model places its strongest image regions](WHERE-THE-MODEL-LOOKS.md)
