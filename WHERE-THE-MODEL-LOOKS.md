@@ -1,5 +1,7 @@
 # See the small change and how the model responds
 
+Look for the cluster of five pinpoints in the enlarged patch. A mammographic calcification can appear as a small bright spot, so the example uses a cluster that is easy to compare at the same scale. Begin with the two zooms, then use the colored tiles to see which changes affected the model's score. [NCI guide to reading a mammogram report](https://www.cancer.gov/types/breast/screening/mammograms)
+
 ![Five bright synthetic spots are added to one projection and tested with controlled blur](examples/where-model-looked.png)
 
 1. The turquoise box marks a cluster of five small, bright spots added to the generated CC projection.

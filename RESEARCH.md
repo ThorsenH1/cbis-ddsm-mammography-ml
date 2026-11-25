@@ -105,7 +105,7 @@ After matching the brightness scale, the median local texture correlation was 0.
 
 ### Reproduce the high-precision candidate
 
-The registry resolves 2,897 original projections to the three existing partitions. The preparation command keeps native precision through image alignment and resizing, and adds a smaller contrast-enhanced component for compatibility with the starting model. It loads lesion annotations for training breasts. The raw data require around 96 GB and the 16-bit cache requires around 10 GB.
+The complete native-precision cache contains **1,635 breasts**. I verified the file sizes for all **2,897 original DICOM projections** before processing. The registry assigned 1,843 projections to training, 467 to validation, and 587 to the official test using the existing split. The preparation command keeps native precision through alignment and resizing, and adds a smaller contrast-enhanced component for compatibility with the starting model. It matched **1,007 of 1,007** training mass annotations and **1,101 of 1,102** training calcification annotations. One calcification annotation had no unambiguous match. The raw data require around 96 GB and the 16-bit cache requires around 10 GB.
 
 I verified the full reader, training and prediction path on four original projections from the project's training partition. Running inference directly from the two DICOM files used for smoke validation reproduced both cached logits. Full-cohort performance is measured separately on the published CBIS-DDSM split.
 
