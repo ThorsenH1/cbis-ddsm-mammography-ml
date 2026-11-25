@@ -1,0 +1,71 @@
+{
+  "selection_sha256": "a581b164132b5afbddafcd6a9e23942d7fdb9ff0ec96494becf03ec888e7a7e6",
+  "subsets": {
+    "one_projection_all": {
+      "breasts": 85,
+      "positive": 37,
+      "macro_auroc": 0.7832207207207207,
+      "macro_auprc": 0.7613149633330234,
+      "evaluable_labels": 1,
+      "auroc_ci95": [
+        0.6915662229324014,
+        0.8866299460960854
+      ]
+    },
+    "one_projection_calc": {
+      "breasts": 35,
+      "positive": 15,
+      "macro_auroc": 0.7133333333333334,
+      "macro_auprc": 0.6859361608368316,
+      "evaluable_labels": 1,
+      "auroc_ci95": [
+        0.5328723684210527,
+        0.8800238095238095
+      ]
+    },
+    "one_projection_mass": {
+      "breasts": 50,
+      "positive": 22,
+      "macro_auroc": 0.8327922077922079,
+      "macro_auprc": 0.822063705948803,
+      "evaluable_labels": 1,
+      "auroc_ci95": [
+        0.7061292114082862,
+        0.9383314602064602
+      ]
+    },
+    "two_projections_all": {
+      "breasts": 251,
+      "positive": 102,
+      "macro_auroc": 0.8096460060534282,
+      "macro_auprc": 0.7777541065443612,
+      "evaluable_labels": 1,
+      "auroc_ci95": [
+        0.7522337219372276,
+        0.8655250189210363
+      ]
+    },
+    "two_projections_calc": {
+      "breasts": 111,
+      "positive": 45,
+      "macro_auroc": 0.7383838383838384,
+      "macro_auprc": 0.734116124592318,
+      "evaluable_labels": 1,
+      "auroc_ci95": [
+        0.6377900368256266,
+        0.8284356606478317
+      ]
+    },
+    "two_projections_mass": {
+      "breasts": 140,
+      "positive": 57,
+      "macro_auroc": 0.8649334178820546,
+      "macro_auprc": 0.824480862346958,
+      "evaluable_labels": 1,
+      "auroc_ci95": [
+        0.7952635221775369,
+        0.9229316212268331
+      ]
+    }
+  }
+}

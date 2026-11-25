@@ -1,0 +1,33 @@
+{
+  "reference_sha256": "a581b164132b5afbddafcd6a9e23942d7fdb9ff0ec96494becf03ec888e7a7e6",
+  "candidate_sha256": "791d20cd9c68910a47b488cdd763212008f7fd238d83d9a139e6260271379e32",
+  "test_rows": 336,
+  "bootstrap_repeats": 1000,
+  "valid_replicates": 1000,
+  "patients": 316,
+  "macro_auroc_ci95": [
+    0.749239171539876,
+    0.8468103479954432
+  ],
+  "macro_auprc_ci95": [
+    0.70214667373147,
+    0.8291692285510315
+  ],
+  "paired_auroc_delta_ci95": [
+    -0.019023748014053144,
+    0.009027291676920447
+  ],
+  "paired_auprc_delta_ci95": [
+    -0.019266442549863018,
+    0.006936025956474801
+  ],
+  "macro_auroc_delta": -0.005185699156410872,
+  "macro_auprc_delta": -0.006487132652431615,
+  "macro_brier_delta": 0.0016462366209498702,
+  "findings": {
+    "malignancy_in_lesion_enriched_cohort": {
+      "reference": 0.8049884965124346,
+      "candidate": 0.7998027973560238
+    }
+  }
+}

@@ -157,3 +157,56 @@ $nativeBoxes = "$experiment/native-mammograms/training-boxes.npz"
 ```
 
 Use `native-fine-texture=runs/mammo-native-fine-texture@mammo-native1536` when comparing the new branch on validation. The DICOM and JPEG ensemble components each take their matching input format.
+
+## Check whether missing projections account for the calcification gap
+
+The official test has 85 breasts with one available image and 251 with both standard images. I grouped the saved scores from the published model by how many images it received. Within each group I measured the AUROC for masses and calcifications separately.
+
+| Available images | All breasts | All AUROC and 95% interval | Calcifications AUROC (breasts) | Masses AUROC (breasts) |
+| --- | ---: | ---: | ---: | ---: |
+| One projection | 85 | 0.7832 (0.6916–0.8866) | 0.7133 (35) | 0.8328 (50) |
+| Both projections | 251 | 0.8096 (0.7522–0.8655) | 0.7384 (111) | 0.8649 (140) |
+
+The gap between calcifications and masses appears in both groups. Each row contains different breasts, so these numbers describe performance by image availability. The intervals are wide, particularly for cases with one projection. [Patient-bootstrap details by subgroup](figures/projection-subgroups.json)
+
+```powershell
+& $p -m medimage.mammo_view_audit --cohort $cohort --benchmark $evaluation `
+    --output "$evaluation/projection-subgroups.json"
+```
+
+## Compare weights fitted to malignant and benign pairs
+
+The published blend sets its weight for each trained model using repeated group splits. I compared this method against fitting the weights directly on pairs, with one malignant and one benign breast in each pair. The new fit rewards the blend for ranking the malignant member higher. A penalty of 0.12 pulls the weights toward the existing method. In the lesion-balanced version, half the total weight comes from all pairs. The other half is divided equally between pairs of calcification cases and pairs of mass cases. Prediction only uses the component scores.
+
+I used five patient-disjoint folds inside the 260-breast validation cohort. Each round refitted the reference weights and, where applicable, the score conversion on the fitting patients alone. This also excludes the scored fold from the reference fit. The cohort includes 127 calcification breasts, 132 mass breasts, and one with both types. The case with both types contributes to overall metrics and to the all-pairs portion of the fit.
+
+| Validation rule | Overall AUROC | Calcification AUROC | Mass AUROC | Average precision |
+| --- | ---: | ---: | ---: | ---: |
+| Reference weights, raw scores | 0.8184 | 0.7559 | 0.8644 | 0.8089 |
+| Reference weights, calibrated scores | 0.8326 | 0.7731 | **0.8817** | **0.8268** |
+| All pairs, raw scores | **0.8338** | **0.7777** | 0.8748 | 0.8224 |
+| Lesion-balanced pairs, raw scores | 0.8331 | 0.7772 | 0.8748 | 0.8223 |
+| All pairs, calibrated scores | 0.8280 | 0.7651 | 0.8780 | 0.8237 |
+| Lesion-balanced pairs, calibrated scores | 0.8275 | 0.7644 | 0.8771 | 0.8236 |
+
+The test decision required a higher overall validation AUROC and at least the reference AUROC for the lower-scoring lesion type. The all-pairs recipe on raw scores had the highest validation AUROC. Its paired change from the calibrated reference was **+0.0012**, with a 95% patient-bootstrap interval of **−0.0140 to +0.0171**. Calcification AUROC improved from 0.7731 to 0.7777. I locked the all-pairs recipe before running the official test. [Validation metrics and paired comparison](figures/pairwise-validation.json)
+
+| Official test metric | Published blend | All pairs, raw scores |
+| --- | ---: | ---: |
+| AUROC | **0.8050** | 0.7998 |
+| Average precision | **0.7762** | 0.7697 |
+| Brier score ↓ | **0.1745** | 0.1762 |
+| Calcification AUROC | **0.7341** | 0.7271 |
+| Mass AUROC | **0.8602** | 0.8572 |
+
+On the 336 official test breasts, the new fit had lower AUROC overall and within both lesion types. The paired overall difference was **−0.0052**, with a 95% patient-bootstrap interval of **−0.0190 to +0.0090**. The eight-model blend has the best measured score in this comparison. [Paired test comparison](figures/pairwise-test.json) · [Walk through the eight-model prediction](WALKTHROUGH.md)
+
+```powershell
+$pairwise = "$experiment/evaluation/mammo-balanced-ranking"
+& $p -m medimage.mammo_rank_balance --reference "$evaluation/selection.json" --cohort $cohort `
+    --work $experiment --previous $search --output $pairwise
+& $p -m medimage.auc_selection test mammo --cohort $cohort --work $experiment --previous $search `
+    --weights $hf --clip $mammoClip --output $pairwise --bootstrap 1000
+& $p -m medimage.auc_compare --cohort $cohort --reference $evaluation --candidate $pairwise `
+    --output "$pairwise/paired-incumbent.json" --bootstrap 1000
+```

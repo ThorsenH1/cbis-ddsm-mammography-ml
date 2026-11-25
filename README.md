@@ -18,6 +18,8 @@ Open two synthetic mammograms, see how the model prepares them, and follow the e
 
 The [research report](RESEARCH.md) documents the external full-resolution experiment and the approach to detecting smaller calcifications.
 
+See the results for [one or two available mammograms](RESEARCH.md#check-whether-missing-projections-account-for-the-calcification-gap) and the [test of weights fitted to malignant–benign pairs](RESEARCH.md#compare-weights-fitted-to-malignant-and-benign-pairs).
+
 ## Dataset
 
 | Partition | Breasts | Patients |

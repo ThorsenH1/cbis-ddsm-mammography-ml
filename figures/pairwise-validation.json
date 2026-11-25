@@ -1,0 +1,146 @@
+{
+  "base_selection_sha256": "a581b164132b5afbddafcd6a9e23942d7fdb9ff0ec96494becf03ec888e7a7e6",
+  "validation_breasts": 260,
+  "validation_patients": 240,
+  "subtype_counts": {
+    "calc": 127,
+    "calc+mass": 1,
+    "mass": 132
+  },
+  "weight_penalty": 0.12,
+  "additional_subtype_pair_share": 0.5,
+  "anchor": "original validation bagging refit inside each outer validation fitting partition",
+  "published_validation_auroc": 0.8199748968979738,
+  "validation": {
+    "raw-nested_reference": {
+      "macro_auroc": 0.8183611260534337,
+      "macro_auprc": 0.8089180471462651,
+      "evaluable_labels": 1,
+      "subtype_metrics": {
+        "calc": {
+          "macro_auroc": 0.755897435897436,
+          "macro_auprc": 0.7088019952567002,
+          "evaluable_labels": 1
+        },
+        "mass": {
+          "macro_auroc": 0.8644301470588235,
+          "macro_auprc": 0.8721919501482154,
+          "evaluable_labels": 1
+        }
+      },
+      "worst_subtype_auroc": 0.755897435897436
+    },
+    "raw-pooled_pairs": {
+      "macro_auroc": 0.8338413723029107,
+      "macro_auprc": 0.8224465503144945,
+      "evaluable_labels": 1,
+      "subtype_metrics": {
+        "calc": {
+          "macro_auroc": 0.7776923076923076,
+          "macro_auprc": 0.7217173829302808,
+          "evaluable_labels": 1
+        },
+        "mass": {
+          "macro_auroc": 0.8747702205882353,
+          "macro_auprc": 0.8793380441738124,
+          "evaluable_labels": 1
+        }
+      },
+      "worst_subtype_auroc": 0.7776923076923076
+    },
+    "raw-lesion_balanced_pairs": {
+      "macro_auroc": 0.8330643715259101,
+      "macro_auprc": 0.8222519392034848,
+      "evaluable_labels": 1,
+      "subtype_metrics": {
+        "calc": {
+          "macro_auroc": 0.7771794871794871,
+          "macro_auprc": 0.7220241710028463,
+          "evaluable_labels": 1
+        },
+        "mass": {
+          "macro_auroc": 0.8747702205882353,
+          "macro_auprc": 0.8797881804379182,
+          "evaluable_labels": 1
+        }
+      },
+      "worst_subtype_auroc": 0.7771794871794871
+    },
+    "calibrated-nested_reference": {
+      "macro_auroc": 0.8326459864921403,
+      "macro_auprc": 0.8268230567906031,
+      "evaluable_labels": 1,
+      "subtype_metrics": {
+        "calc": {
+          "macro_auroc": 0.7730769230769232,
+          "macro_auprc": 0.7205926311156203,
+          "evaluable_labels": 1
+        },
+        "mass": {
+          "macro_auroc": 0.8816636029411765,
+          "macro_auprc": 0.8905953284161698,
+          "evaluable_labels": 1
+        }
+      },
+      "worst_subtype_auroc": 0.7730769230769232
+    },
+    "calibrated-pooled_pairs": {
+      "macro_auroc": 0.8279839818301357,
+      "macro_auprc": 0.8236884982176309,
+      "evaluable_labels": 1,
+      "subtype_metrics": {
+        "calc": {
+          "macro_auroc": 0.7651282051282051,
+          "macro_auprc": 0.7200332821109912,
+          "evaluable_labels": 1
+        },
+        "mass": {
+          "macro_auroc": 0.8779871323529412,
+          "macro_auprc": 0.8867649184661596,
+          "evaluable_labels": 1
+        }
+      },
+      "worst_subtype_auroc": 0.7651282051282051
+    },
+    "calibrated-lesion_balanced_pairs": {
+      "macro_auroc": 0.8275058275058275,
+      "macro_auprc": 0.8235587643469273,
+      "evaluable_labels": 1,
+      "subtype_metrics": {
+        "calc": {
+          "macro_auroc": 0.7643589743589744,
+          "macro_auprc": 0.7183030763631224,
+          "evaluable_labels": 1
+        },
+        "mass": {
+          "macro_auroc": 0.8770680147058822,
+          "macro_auprc": 0.8863447861860209,
+          "evaluable_labels": 1
+        }
+      },
+      "worst_subtype_auroc": 0.7643589743589744
+    }
+  },
+  "selected_for_test": "raw-pooled_pairs",
+  "paired_validation": {
+    "recipe": "raw-pooled_pairs",
+    "valid_replicates": 1000,
+    "patients": 240,
+    "macro_auroc_ci95": [
+      0.7846440433891096,
+      0.8806462421437468
+    ],
+    "macro_auprc_ci95": [
+      0.7595022211053809,
+      0.8760732325054966
+    ],
+    "paired_auroc_delta_ci95": [
+      -0.013976138300462649,
+      0.01714249898799714
+    ],
+    "paired_auprc_delta_ci95": [
+      -0.018228941691954322,
+      0.010239322630634172
+    ]
+  }
+}
