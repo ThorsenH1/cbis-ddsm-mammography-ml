@@ -158,6 +158,25 @@ $nativeBoxes = "$experiment/native-mammograms/training-boxes.npz"
 
 Use `native-fine-texture=runs/mammo-native-fine-texture@mammo-native1536` when comparing the new branch on validation. The DICOM and JPEG ensemble components each take their matching input format.
 
+The native patch head peaked at **0.79218 validation AUROC**, after epoch 10 with a width of 96, dropout 0.35 and learning rate 0.0008. Its JPEG counterpart reached **0.7964**. The strongest eligible blend included the new detector with a **22.8%** weight and scored **0.82822** on validation. This trial's test gate was the earlier fine-texture blend's **0.83504**. The original-image patch candidate stayed on development data.
+
+### Teach the breast classifier which kind of lesion it sees
+
+The same patch detectors supply the same candidate regions. The breast classifier learns two extra labels during training, mass and calcification. A second training rule also rewards ranking malignant breasts above benign breasts within the same lesion type. Each comparison uses proposal sets from detectors that excluded the training breast's patient. Inference scores malignancy using the image patches alone.
+
+Four recipes compared widths of 96 and 128 and a within-type loss weight of zero or 0.12. The strongest configuration used width 128, dropout 0.48, and learning rate 0.0005. Its best epoch was **13 of 16**. It reached **0.80683 validation AUROC** and **0.80198 average precision** as a standalone model on the same 260 breasts. The prior native patch classifier reached 0.79218 AUROC.
+
+![Validation AUROC by epoch for the four mammography classifiers with lesion-type supervision](figures/mammo-subtype-training.png)
+
+The patient-grouped blend search evaluated **1,292** combinations. Its winner assigned 21.8% weight to the new classifier and reached **0.82063 validation AUROC**. The pre-specified test gate was **0.83504**, so this comparison ends on validation. The official benchmark for the published ensemble is **0.8050 test AUROC**. [Epoch-by-epoch metrics](figures/mammo-subtype-training.json)
+
+```powershell
+& $p -m medimage.mammo_subtype_tuning --cohort $cohort --source "$runs/mammo-native-fine-texture" `
+    --output "$runs/mammo-native-subtype" --epochs 16 --seed 5323
+```
+
+Include `native-subtype=runs/mammo-native-subtype@mammo-native1536` in the patient-grouped blend search. The training command verifies the checksums and patient membership of all three proposal banks before fitting the new classifier.
+
 ## Check whether missing projections account for the calcification gap
 
 The official test has 85 breasts with one available image and 251 with both standard images. I grouped the saved scores from the published model by how many images it received. Within each group I measured the AUROC for masses and calcifications separately.
